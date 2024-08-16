@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commence.</title>
+    <style>
+        body{
+            background-color: greenyellow;
+            margin-top: 20px;
+            margin-left: 400px;
+        }
+    </style>
+</head>
+<body >
+    <h1>E-Commence</h1>
+    <input type="text" placeholder="input the name of an item" id="item">
+    <button onclick="addItems()">ADD</button>
+    <!-- <div id="display" cllass= "one"></div> -->
+    <!-- <div> -->
+        <table id="myTable" class="table"></table>
+    </div>
+    <button onclick="deleteItems()">Delete First Item</button>
+    <button onclick="deleteItems()">Delete Item</button>
+    <button onclick="deleteItems()">Delete last Item</button>
+
+    <script>
+        var allitems =[]
+        function addItems(){
+            if (allitems.value === ''){
+                alert("You have to input the name of an item")
+            } else {
+                console.log (item.value); 
+                let newObject = {
+                    list : item.value
+                }
+                allitems.push(newObject)                 
+                console.log (allitems); 
+
+                document.getElementById('item').value = ''
+                document.getElementById('myTable').value = '' 
+                // display.innerHTML = ''
+                myTable.innerHTML =`
+                <tr>
+                    <td class="col-1">S/N</td>
+                    <td class="col-6">PRODUCT</td>
+                    </tr>`
+
+                    for (i=0; i< allitems.length; i++){
+                        myTable.innerHTML += `<tr>
+                        <td> ${i+1}} </td> 
+                        <td> ${allitems[i].list}</td>
+                        
+                        </tr>`
+                    }}
+                    localstorage.setItems("allItems", JSON.stringify(allItems))
+                }
+        function deleteitem() {
+            allitems.shift(item.value)
+            console.log(allitems); 
+            document.getElementById('item').value =""
+            document.getElementById('display').value =""
+            display.innerHTML =""
+            for (i = 0; i, allitems.length; i++){
+                display.innerHTML +=`<p> ${i+1}, ${allitems[i]} `
+            } 
+        }
+        locatstorage.setItems("deleteitem", JSON.stringify(deleteitem))
+    </script>
+</body>
+</html>
